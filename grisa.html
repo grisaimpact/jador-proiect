@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jador Proiect</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Jador Proiect Final</h1>
+  <p>Un om, o voce, o stare – Jador!</p>
+</header>
+
+<!-- Meniu mobil -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<nav id="navbar">
+  <a href="#biografie">Biografie</a>
+  <a href="#muzica">Muzică</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="biografie" class="fade-in">
+  <h2>Biografie</h2>
+  <img src="imagini/main.webp" alt="Jador">
+  <p>Jador, pe numele său real Remus Ionuț Dumitrache, s-a născut în 1995 și este una dintre cele mai influente figuri ale muzicii moderne românești. Cariera sa a început odată cu aparițiile TV, dar adevăratul succes a venit cu muzica.</p>
+  <p>Stilul său unic îmbină manele, trap și influențe balcanice. Jador transmite emoții puternice, atât prin versuri, cât și prin prezența sa scenică. Este adesea în topuri YouTube, cu milioane de vizualizări.</p>
+</section>
+
+<section id="muzica" class="fade-in">
+  <h2>Hituri Populare</h2>
+  <p>Mai jos poți accesa câteva dintre cele mai cunoscute piese ale lui Jador. Fiecare thumbnail te trimite direct pe YouTube:</p>
+  <div class="thumbs">
+    <a href="https://www.youtube.com/watch?v=U2Udq8JcCA8&list=PLxqsXjXWttc8JbvROJ574IHYBUSxJimOa&index=1" target="_blank">
+      <img src="imagini/jador1.jpg" alt="Dau Moda">
+    </a>
+    <a href="https://www.youtube.com/watch?v=tC5sR8HIRr8&list=PLxqsXjXWttc8JbvROJ574IHYBUSxJimOa&index=3" target="_blank">
+      <img src="imagini/jador2.jpg" alt="Formidabilă">
+    </a>
+    <a href="https://www.youtube.com/watch?v=bR5ioi1oJ1I&list=PLxqsXjXWttc8JbvROJ574IHYBUSxJimOa&index=5" target="_blank">
+      <img src="imagini/jador3.jpg" alt="Am Ceva Pe Buză">
+    </a>
+    <a href="https://www.youtube.com/watch?v=1bzFsZ76JFY&list=PLxqsXjXWttc8JbvROJ574IHYBUSxJimOa&index=2" target="_blank">
+      <img src="imagini/jador4.jpg" alt="Bijuterie">
+    </a>
+  </div>
+</section>
+
+<section id="fun-facts" class="fade-in">
+  <h2>Știai că...?</h2>
+  <div id="fact-box">Se încarcă un fun fact despre Jador...</div>
+</section>
+
+
+
+
+<section id="quiz" class="fade-in">
+  <h2>Quiz: Cât de bine îl cunoști pe Jador?</h2>
+
+  <!-- Ecran de start -->
+  <div id="quiz-start">
+    <p>Ești gata să îți testezi cunoștințele despre Jador?</p>
+    <button onclick="startQuiz()">Începe quizul</button>
+  </div>
+
+  <!-- Quiz efectiv -->
+  <div id="quiz-container" style="display: none;">
+    <p id="question">Întrebarea va apărea aici</p>
+    <div id="answers"></div>
+    <button onclick="nextQuestion()">Următoarea</button>
+    <p id="score"></p>
+  </div>
+</section>
+
+
+<section id="audio-player" class="fade-in">
+  <h2>Ascultă piesele lui Jador</h2>
+
+  <div class="track">
+    <p>🎵 Jador & Camelia Dumitrache - Pasiunea Pentru Tine</p>
+    <audio controls>
+      <source src="audio/Jador & Camelia Dumitrache - Pasiunea Pentru Tine (Oficial Video).mp3" type="audio/mpeg">
+      Browserul tău nu suportă audio HTML5.
+    </audio>
+  </div>
+
+  <div class="track">
+    <p>🎵 Jador  @VladutaLupau - Amanta </p>
+    <audio controls>
+      <source src="audio/Jador  @VladutaLupau - Amanta  Official Video.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="track">
+    <p>🎵 Jador - Aseara Dansai Singura</p>
+    <audio controls>
+      <source src="audio/Jador - Aseara Dansai Singura  Official Video.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+</section>
+
+
+
+
+<section id="contact" class="fade-in">
+  <h2>Contact & Rețele</h2>
+  <p>Vrei să fii la curent cu noutățile lui Jador? Urmărește-l online:</p>
+  <div class="social-buttons">
+    <a href="https://www.instagram.com/jadorreal/" target="_blank" class="social-button instagram">Instagram</a>
+    <a href="https://www.youtube.com/channel/UCuVGndfnNoNXzxpSZ5qgiaw" target="_blank" class="social-button youtube">YouTube</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Jador | Creat de Gherta Grigore</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navbar = document.getElementById('navbar');
+    navbar.classList.toggle('open');
+  }
+
+  // Aplica animatie fade-in la scroll
+  const fadeIns = document.querySelectorAll('.fade-in');
+  window.addEventListener('scroll', () => {
+    fadeIns.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  });
+
+  const questions = [
+    {
+      q: "Care este numele real al lui Jador?",
+      a: ["Ionuț Dumitrache", "Remus Ionuț Dumitrache", "George Dumitru", "Florin Piersic"],
+      correct: 1
+    },
+    {
+      q: "În ce emisiune a devenit cunoscut?",
+      a: ["X Factor", "Survivor România", "Puterea Dragostei", "Românii au talent"],
+      correct: 2
+    },
+    {
+      q: "Cu ce gen muzical este asociat Jador?",
+      a: ["Trap", "Rock", "Pop", "Manele/Trap"],
+      correct: 3
+    },
+    {
+      q: "Din ce oraș provine Jador?",
+      a: ["Cluj-Napoca", "Bacău", "București", "Iași"],
+      correct: 1
+    },
+    {
+      q: "Care este una dintre cele mai ascultate piese ale sale?",
+      a: ["Dacă tu n-ai fi", "Luna", "Inimă fragilă", "Mă minți pe față"],
+      correct: 3
+    },
+    {
+      q: "Ce studii are Jador?",
+      a: ["Doar liceul", "Facultate de muzică", "Master în administrarea afacerilor", "Niciuna"],
+      correct: 2
+    }
+  ];
+
+  let current = 0;
+  let score = 0;
+
+  const startScreen = document.getElementById("quiz-start");
+  const quizContainer = document.getElementById("quiz-container");
+  const questionEl = document.getElementById("question");
+  const answersEl = document.getElementById("answers");
+  const scoreEl = document.getElementById("score");
+
+  function startQuiz() {
+    startScreen.style.display = "none";
+    quizContainer.style.display = "block";
+    showQuestion();
+  }
+
+  function showQuestion() {
+    let q = questions[current];
+    questionEl.textContent = `Întrebarea ${current + 1}: ${q.q}`;
+    answersEl.innerHTML = "";
+
+    q.a.forEach((ans, index) => {
+      let div = document.createElement("div");
+      div.classList.add("answer");
+      div.textContent = ans;
+      div.onclick = () => selectAnswer(index);
+      answersEl.appendChild(div);
+    });
+
+    scoreEl.textContent = "";
+  }
+
+  function selectAnswer(index) {
+    const correct = questions[current].correct;
+    const all = document.querySelectorAll(".answer");
+
+    all.forEach((el, i) => {
+      el.onclick = null;
+      if (i === correct) {
+        el.style.backgroundColor = "#88ff88";
+      } else {
+        el.style.backgroundColor = "#ffaaaa";
+      }
+    });
+
+    if (index === correct) {
+      score++;
+    }
+  }
+
+  function nextQuestion() {
+    current++;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      showScore();
+    }
+  }
+
+  function showScore() {
+    questionEl.textContent = "Rezultatul tău:";
+    answersEl.innerHTML = "";
+    scoreEl.textContent = `Ai răspuns corect la ${score} din ${questions.length} întrebări!`;
+  }
+
+
+
+  const facts = [
+    "Jador are un master în Administrarea Afacerilor!",
+    "A devenit faimos datorită emisiunii 'Puterea Dragostei'.",
+    "A participat la 'Survivor România' în 2021.",
+    "Are milioane de fani pe Instagram și YouTube.",
+    "Stilul său muzical îmbină manele, trap și pop românesc.",
+    "Este originar din Bacău și și-a păstrat mereu autenticitatea.",
+    "Jador a fost numărul 1 pe YouTube România de mai multe ori.",
+    "Pe lângă muzică, a cochetat și cu televiziunea și filmul."
+  ];
+
+  let currentFact = 0;
+  const factBox = document.getElementById("fact-box");
+
+  function showNextFact() {
+    factBox.style.opacity = 0; // animare de dispariție
+    setTimeout(() => {
+      factBox.textContent = facts[currentFact];
+      factBox.style.opacity = 1; // reapariție
+      currentFact = (currentFact + 1) % facts.length;
+    }, 500);
+  }
+
+  showNextFact();
+  setInterval(showNextFact, 5000); // la fiecare 5 secunde
+</script>
+
+</body>
+</html>
